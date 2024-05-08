@@ -123,9 +123,9 @@ int gusse_computer_2(gusses_number){
            
         }
         else continue;
-        // printf("min - %d\n", limit_min);
+        printf("min - %d\n", limit_min);
         printf("zagadannoe - %d\n", rand_num);
-        // printf("max - %d\n", limit_max);
+        printf("max - %d\n", limit_max);
 
 
         char answ = main_gusse(gusses_number, rand_num);
@@ -141,7 +141,23 @@ int gusse_computer_2(gusses_number){
             else break;
         }
 
-        if (answ == 'f'){
+        // if (answ == 'f'){
+        //     printf("You find number !!! \n");
+        //     return 'f';
+        // }
+
+        if (answ=='s'){
+            limit_min=rand_num;
+            printf("Smaller\n");
+        }
+        else if (answ=='g')
+        {
+            limit_max=rand_num;
+            printf("Greater\n");
+        }
+        else if (answ=='f')
+        {
+            printf("You find number !!! \n");
             return 'f';
         }
 
@@ -172,7 +188,7 @@ int main(void){
             char res = gusse_user();
             if (res == 'f'){
                 printf_s("Did you vanna try again ? (y/n)");
-                scanf(" n%c", &an);
+                scanf(" %c", &an);
                 if (an == 'y'){
                     continue;
                 }
